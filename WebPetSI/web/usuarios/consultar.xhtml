@@ -1,0 +1,281 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/Templates/template.xhtml" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+   
+    <!-- aquí está la inclusión del HEAD -->
+    <ui:include src="/head.xhtml"/>
+    
+    <h:body>    
+     <ui:include src="/header.xhtml"/>
+      <section>
+         <!-- carusel -->  	
+         <div id="carousel">
+            <div id="owl-demo" class="owl-carousel owl-theme">
+               <div class="item">
+                  <img src="Resources1/img/1.jpg" alt=""/>      
+                  <div class="carousel-text">
+                     <div class="line">
+                        <div class="s-12 l-9">
+                         <h2>Atendemos las 24 horas del dia</h2>  
+                        </div>
+                        <div class="s-12 l-9">
+                           
+                           <p>Somos los mejores a la hora de atender mascotas</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="item">
+                  <img src="Resources1/img/2.jpg"   height="42" width="42"/>      
+                  <div class="carousel-text">
+                     <div class="line">
+                        <div class="s-12 l-9">
+                           
+                        </div>
+                        <div class="s-12 l-9">
+                           
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="item">
+                  <img src="Resources1/img/3.jpg" alt="https://www.canceres.net/wp-content/uploads/2019/10/15833/cancer-en-animales.png"/>      
+                  <div class="carousel-text">
+                     <div class="line">
+                        <div class="s-12 l-9">
+                           <h2>Cuidamos de tus mascotas</h2>
+
+                        </div>
+                        <div class="s-12 l-9">
+                           <p>todo lo que deberiamos saber de canser de animales
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- FIRST BLOCK --> 
+         
+     
+
+
+
+         <div id="first-block">
+            <div class="line">
+               <h2>Quienes somos</h2>
+               <p class="subtitile">La clinica veterinaria PETSI se centra en el cuidados de los nuestras mascotas caninas y felinas.
+               </p>
+               <div class="margin">
+                  <div class="s-12 m-6 l-3 margin-bottom">
+                     <i class="icon-paperplane_ico icon2x"></i>
+                     <h3>Ubicasion</h3>
+                     <p>Nos encontramos ubicados en la zona quita de usme en el barrio santha martha atendemos las 24 horas del dia.
+                     </p>
+                  </div>
+                  <div class="s-12 m-6 l-3 margin-bottom">
+                     <i class="icon-star icon2x"></i>
+                     <h3>PETSI</h3>
+                     <p>Nuestro sistema de informacion PETSI es uns clinica veterinaria donde atienden a tus mascotas aqui tu podras encontrar 
+                        atencion medica de tu mascota tanto como hospitalizaciones como tambien accesorios para tus mascotas incluyendo los alimentos y medicina para tu mascota. 
+                     </p>
+                  </div>
+                  <div class="s-12 m-6 l-3 margin-bottom">
+                     <i class="icon-message icon2x"></i>
+                     <h3>Servicios</h3>
+                     <p>Atendemos las 24 horas del dia cualquier urgencia que tu mascota necesite nosotros las atendemos por medio de contactanos podras comunicarte con nosotros.
+                     </p>
+                  </div>
+                  <div class="s-12 m-6 l-3 margin-bottom">
+                     <i class="icon-mail icon2x"></i>
+                     <h3>Contactanos</h3>
+                     <p>Los puedes contactar por medio de nuestras redes sociales y tambien por medio de esta pagina en la parte derecha de tu pantalla en contactos alli encontraras un 
+                        formulario nuestra direccion y muchos mas datos
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+
+
+
+
+
+
+
+
+         <center><iframe> width="1000" height="520" src="https://www.youtube.com/embed/7OgDOiWKPy4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+
+
+
+
+<!-- redes sociales  -->
+
+
+<div class="social-bar">
+   <a href="https://www.facebook.com/PETSI-115950236931306/" class="icon icon-facebook" target="_blank"></a>
+   <a href="https://twitter.com/PETSI30214132?s=08" class="icon icon-twitter" target="_blank"></a>
+   <a href="https://www.youtube.com/c/devcodela" class="icon icon-youtube" target="_blank"></a>
+   <a href="https://www.instagram.com/s.ipetsi" class="icon icon-instagram" target="_blank"></a>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form>
+  
+   <div class="con">
+ 
+   <header class="head-form">
+      <h2>usuario</h2>
+     
+      <p>entra a nuestra pagina para mas informacion</p>
+   </header>
+
+   <br/>
+   <div class="field-set">
+     
+      <!--   nombre-->
+         <span class="input-item">
+           <i class="fa fa-user-circle"></i>
+         </span>
+        <!--   uusuario-->
+        <input class="form-input" id="txt-input" type="text" placeholder="usuario" required="1"> </input>
+     
+      <br/>
+     
+           <!-- contraseña -->
+     
+      <span class="input-item">
+        <i class="fa fa-key"></i>
+       </span>
+     
+      <input class="form-input" type="password" placeholder="contraseña" id="pwd"  name="Password" required="1"> </input>
+     
+<!--      contraseña -->
+     <span>
+        <i class="fa fa-eye" aria-hidden="true"  type="button" id="eye"></i>
+     </span>
+     
+     
+      <br/>
+<!-- usuario login -->
+      <button class="log-in"> entrar </button>
+   </div>
+  
+
+   <div class="other">
+<!--      botonn-->
+      <button class="btn submits frgt-pass">se me olvido la contraseña</button>
+<!--     botoo2-->
+      <button class="btn submits sign-up">registrarme
+<!--         java verdadero-->
+      <i class="fa fa-user-plus" aria-hidden="true"></i>
+      </button>
+<!--       Division -->
+   </div>
+     
+
+  </div>
+  
+
+</form>
+<div/>
+
+
+
+
+
+
+
+
+
+         <!-- SECOND BLOCK --> 	
+         <div id="second-block">
+            <div class="line">
+               <div class="margin-bottom">
+                  <div class="margin">
+                     <article class="s-12 l-8 center">
+                        <h1> Proposito</h1>
+                        <p class="margin-bottom">Nuestro proposito es creser como empresa no solo economicamente sino tambien comercialmente 
+                        </p>
+                        <a class="button s-12 l-4 center" href="product.html">Mas Informacion</a>  			
+                     </article>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- GALLERY --> 	
+         <div id="third-block">
+            <div class="line">
+               <h2>Quieres adoptar</h2>
+               <p class="subtitile">Aqui encontraras algunos de nuestras mascotas disponibles quieres formas parte de nuestra familia.
+               </p>
+               <div class="margin">
+                  <div class="s-12 m-6 l-3">
+                     <img src="Resources1/img/4.jpg" alt="alternative text"/>      
+                     <p class="subtitile">Estos dos amiguitos nunca se separan adoptalos
+                     </p>
+                  </div>
+                  <div class="s-12 m-6 l-3">
+                     <img src="Resources1/img/5.jpg" alt="alternative text"/>      
+                     <p class="subtitile">Estos dos hermanos se llaman pacho y luis son inseparables y muy juguetones adoptalos 
+                     </p>
+                  </div>
+                  <div class="s-12 m-6 l-3">
+                     <img src="Resources1/img/6.jpg" alt="alternative text"/>      
+                     <p class="subtitile">Esta linda gatita se llama pancha le gusta jugar y es muy curiosa
+                     </p>
+                  </div>
+                  <div class="s-12 m-6 l-3">
+                     <img src="Resources1/img/7.jpg" alt="alternative text"/>      
+                     <p class="subtitile">Esta linda perrita se llama luna le gusta comer y dormir es muy  tierna.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="fourth-block">
+            <div class="line">
+               <div id="owl-demo2" class="owl-carousel owl-theme">
+                  <div class="item">
+                     <h2>Mision</h2>
+                     <p class="s-12 m-12 l-8 center">Nuestra mision es llegar ser las mejor clinica veterinaria del pais y asi poder ayudar a muchas mas mascotas.
+                     </p>
+                  </div>
+                  <div class="item">
+                     <h2>Vision</h2>
+                     <p class="s-12 m-12 l-8 center">Nuestra vision es llegar ser una veterinaria prestigiosa e intachable donde encontratas muy buen servicio al cliente.
+                     </p>
+                  </div>
+                  <div class="item">
+                     <h2>Nosotros </h2>
+                     <p class="s-12 m-12 l-8 center">Somos una clinica Veterinaria que atiende cualquier cosa que necesite tu mascota desde accesorios,medicina,tratamientos de belleza,consultas,alimentos y hasta hospitalizaciones.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+                <ui:include src="/scripts.xhtml"/>
+        
+    </h:body>
+</ui:composition>
+
+
