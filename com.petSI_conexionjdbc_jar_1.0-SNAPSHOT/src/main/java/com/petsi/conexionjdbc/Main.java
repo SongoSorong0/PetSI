@@ -37,7 +37,6 @@ public class Main
             try (Connection conn = Conexion.getInstance())
             {
             
-            
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM importpetsi.usuarios WHERE primNomUsu =?");
             ps.setString(1, "Sergio");
             //ps.execute();

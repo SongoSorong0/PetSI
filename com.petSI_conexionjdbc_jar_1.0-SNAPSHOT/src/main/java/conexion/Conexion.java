@@ -39,7 +39,9 @@ public class Conexion
         propiedadesConexion.put ("url","jdbc:mysql://localhost:3306/importpetsi?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
         propiedadesConexion.put ("user","root");
         propiedadesConexion.put ("password","mePongosongo1");
-        conexion = DriverManager.getConnection(propiedadesConexion.getProperty("url"));
+        conexion = DriverManager.getConnection(
+                propiedadesConexion.getProperty("url"),
+                propiedadesConexion);
         } 
         catch (SQLException ex) 
         {
