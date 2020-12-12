@@ -13,6 +13,7 @@ import com.petsi.conexionjdbc.dao.fabricas.FactoryDAO;
 import com.petsi.conexionjdbc.dao.fabricas.FactoryDAOMySQL;
 import com.petsi.conexionjdbc.dao.fabricas.FactoryMethod;
 import com.petsi.conexionjdbc.modelo.Usuario;
+import com.petsi.conexionjdbc.modelo.builders.UsuarioBuilder;
 import conexion.Conexion;
 import excepciones.ConexionException;
 import excepciones.FactoryException;
@@ -35,18 +36,25 @@ import java.util.Properties;
 public class Main 
 {
     public static void main(String[] args) 
-    {       
-       
-            
+    {
             try 
             {
                 FactoryDAO factoryDAO = FactoryMethod.getFactoryDAO();
-                
-                //UsuarioDAO uDao =  FactoryMethod.getUsuarioDAO();
-                //ProductoDAO pDAO = FactoryMethod.getProductoDAO();
+                UsuarioDAO uDao =  FactoryMethod.getUsuarioDAO();
+                ProductoDAO pDao = FactoryMethod.getProductoDAO();
             
-                
-            
+            //Registrar
+            Usuario ur;
+                ur = UsuarioBuilder.builder();
+                        .setP("Pepito")
+                       // .primApeUsu("Perez");
+            uDao.registrar(ur);
+
+
+
+
+
+            //Consultar por ID
             Usuario u = uDao.consultarPorIDUs(2);   
             System.out.println(String.format("IDUs: %d - primNomUsu: %s -  PrimApeUsu: %s "
             ,u.getIDUs(), u.getPrimNomUsu(),u.getPrimApeUsu()));

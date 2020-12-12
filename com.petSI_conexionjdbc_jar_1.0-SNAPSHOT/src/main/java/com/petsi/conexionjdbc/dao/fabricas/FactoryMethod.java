@@ -42,7 +42,7 @@ public class FactoryMethod
                 return FactoryDAO();
                 
             } catch (Exception ex) {
-                throw new FactoryException(FactoryExceptionEnum.ERROR_FABRICA_DAO);
+                throw new FactoryException(FactoryExceptionEnum.ERROR_FABRICA_DAO, ex);
             }
         }
     

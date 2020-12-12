@@ -8,13 +8,13 @@ import java.util.List;
 
 public interface UsuarioDAO 
 {
-    void registrar(Usuario usuario);
+    void registrar(Usuario usuario) throws ConexionException;
     
     Usuario consultarPorIDUs(Integer IDUs)throws ConexionException;
     
     List<Usuario> consultarTodos();
     
-    void actualizarr(Usuario usuario);
+    void actualizar(Usuario usuario);
     
     void eliminarPorId(Integer id);
 

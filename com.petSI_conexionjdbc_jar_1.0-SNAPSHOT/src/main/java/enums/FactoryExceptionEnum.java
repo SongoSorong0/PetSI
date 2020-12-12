@@ -7,7 +7,7 @@ package enums;
 
 public enum FactoryExceptionEnum 
 {
-    ERROR_FABRICA_DAO("20001","Error al instanciar la fabrica DAO");
+    ERROR_FABRICA_DAO("20001","Error al instanciar la fabrica DAO" );
     
     private String codigo;
     private String mensaje;

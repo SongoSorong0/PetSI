@@ -15,8 +15,21 @@ public class UsuarioDAOMySQL implements UsuarioDAO
 {
 
     @Override
-    public void registrar(Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void registrar(Usuario usuario) throws ConexionException
+    {
+        try
+        {
+            PreparedStatement ps = Conexion.getInstance()
+                    .prepareStatement("INSERT INTO importpetsi.usuarios(PrimNomUsu,PrimApeUsu) VALUES(?,?,?,?)");
+            ps.setString(1, usuario.getPrimNomUsu());
+            ps.setString(2, usuario.getPrimApeUsu());
+            ps.execute();
+            ps.close();
+        }
+        catch(SQLException ex) 
+        {
+            throw new ConexionException(ConexionExceptionEnum.ERROR_ACTUALIZACION, ex);         
+        }
     }
 
     @Override
@@ -49,7 +62,7 @@ public class UsuarioDAOMySQL implements UsuarioDAO
     }
 
     @Override
-    public void actualizarr(Usuario usuario) {
+    public void actualizar(Usuario usuario) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

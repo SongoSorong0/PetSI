@@ -8,7 +8,7 @@ import java.util.List;
 public class UsuarioDAOPostgreSQL implements UsuarioDAO{
 
     @Override
-    public void registrar(Usuario usuario) {
+    public void registrar(Usuario usuario) throws ConexionException{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -30,7 +30,7 @@ public class UsuarioDAOPostgreSQL implements UsuarioDAO{
     }
 
     @Override
-    public void actualizarr(Usuario usuario) {
+    public void actualizar(Usuario usuario) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
