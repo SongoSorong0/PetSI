@@ -1,7 +1,8 @@
 
 package com.petsi.conexionjdbc.dao;
 
-import com.petsi.conexionjdbc.modelo.Usuario;
+import com.petsi.conexionjdbc.modelo.Carrito_compras;
+import com.petsi.conexionjdbc.modelo.builders.UsuarioBuilder;
 import conexion.Conexion;
 import enums.ConexionExceptionEnum;
 import excepciones.ConexionException;
@@ -11,18 +12,22 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-public class UsuarioDAOMySQL implements UsuarioDAO
+public  class UsuarioDAOMySQL implements UsuarioDAO
 {
 
     @Override
-    public void registrar(Usuario usuario) throws ConexionException
+    public void registrar(Carrito_compras usuario) throws ConexionException
     {
         try
         {
             PreparedStatement ps = Conexion.getInstance()
-                    .prepareStatement("INSERT INTO importpetsi.usuarios(PrimNomUsu,PrimApeUsu) VALUES(?,?,?,?)");
-            ps.setString(1, usuario.getPrimNomUsu());
-            ps.setString(2, usuario.getPrimApeUsu());
+                    .prepareStatement("INSERT INTO importpetsi.usuarios(IDUs,primNomUsu,segNomUsu,PrimApeUsu,SegApeUsu)"
+                            + " VALUES(?,?,?,?,?)");
+            ps.setInt(1, usuario.getIDUs());
+            ps.setString(2, usuario.getPrimNomUsu());
+            ps.setString(3, usuario.getSegNomUsu());
+            ps.setString(4, usuario.getPrimApeUsu());
+            ps.setString(5, usuario.getSegApeUsu());
             ps.execute();
             ps.close();
         }
@@ -33,21 +38,22 @@ public class UsuarioDAOMySQL implements UsuarioDAO
     }
 
     @Override
-    public Usuario consultarPorIDUs(Integer IDUs) throws ConexionException{
+    public Carrito_compras consultarPorIDUs(Integer IDUs) throws ConexionException{
         try {
             PreparedStatement ps = Conexion.getInstance()
                     .prepareStatement("SELECT * FROM importpetsi.usuarios WHERE IDUs =?");
             ps.setInt(1, IDUs);
             ResultSet rs = ps.executeQuery();
-            Usuario u = null;
+            Carrito_compras u = null;
             if (rs.next()) {
-                u = new Usuario();
+                u = new Carrito_compras();
                 u.setIDUs(rs.getInt("IDUs"));
                 u.setPrimNomUsu(rs.getString("PrimNomUsu"));
+                u.setSegNomUsu(rs.getString("SegNomUsu"));
                 u.setPrimApeUsu(rs.getString("PrimApeUsu"));
+                u.setSegApeUsu(rs.getString("SegApeUsu"));
                 //u.setNombreUsuario(rs.getString("NombreUsuario"));
-                //u.setClave(rs.getString("Clave"));
-                
+                //u.setClave(rs.getString("Clave"));    
             }
           return u;
         } catch (SQLException ex) {
@@ -57,12 +63,12 @@ public class UsuarioDAOMySQL implements UsuarioDAO
     }
 
     @Override
-    public List<Usuario> consultarTodos() {
+    public List<Carrito_compras> consultarTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void actualizar(Usuario usuario) {
+    public void actualizar(Carrito_compras usuario) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -72,7 +78,19 @@ public class UsuarioDAOMySQL implements UsuarioDAO
     }
 
     @Override
-    public Usuario consultarPorIDUs() {
+    public Carrito_compras consultarPorIDUs() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+    /*
+    @Override
+    public void registrar(UsuarioBuilder ur) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }*/
+
+    @Override
+    public void registrar(UsuarioBuilder ur) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -16,8 +16,7 @@ import excepciones.FactoryException;
  */
 public class FactoryMethod 
 {
-
-    private static FactoryDAO FactoryDAO() {
+    private static FactoryDAO factoryDAO() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -28,6 +27,7 @@ public class FactoryMethod
     public static ProductoDAO getProductoDAO() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+   
     private FactoryMethod()
     {
         
@@ -36,10 +36,10 @@ public class FactoryMethod
         public static FactoryDAO getFactoryDAO() throws FactoryException
         {
             try {
-                FactoryDAO FactoryDAO = (FactoryDAO) Class
+                FactoryDAO factoryDAO = (FactoryDAO) Class
                         .forName("com.petsi.conexionjdbc.dao.fabricas.FactoryDAOMySQL")
                         .newInstance();
-                return FactoryDAO();
+                return factoryDAO;
                 
             } catch (Exception ex) {
                 throw new FactoryException(FactoryExceptionEnum.ERROR_FABRICA_DAO, ex);

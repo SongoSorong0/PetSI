@@ -1,22 +1,22 @@
 
 package com.petsi.conexionjdbc.dao;
 
-import com.petsi.conexionjdbc.modelo.Usuario;
+import com.petsi.conexionjdbc.modelo.Carrito_compras;
 import excepciones.ConexionException;
 import java.util.List;
 
 public interface ProductoDAO 
 {
-    void registrar(Usuario usuario);
+    void registrar(Carrito_compras usuario);
     
-    Usuario consultarPorIDUs(Integer IDUs)throws ConexionException;
+    Carrito_compras consultarPorIDUs(Integer IDUs)throws ConexionException;
     
-    List<Usuario> consultarTodos();
+    List<Carrito_compras> consultarTodos();
     
-    void actualizarr(Usuario usuario);
+    void actualizarr(Carrito_compras usuario);
     
     void eliminarPorId(Integer id);
 
-    public Usuario consultarPorIDUs();
+    public Carrito_compras consultarPorIDUs();
     
 }

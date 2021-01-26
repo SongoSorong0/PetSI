@@ -27,6 +27,5 @@ public enum FactoryExceptionEnum
     {
         return mensaje;
     }
-    
-    
+   
 }

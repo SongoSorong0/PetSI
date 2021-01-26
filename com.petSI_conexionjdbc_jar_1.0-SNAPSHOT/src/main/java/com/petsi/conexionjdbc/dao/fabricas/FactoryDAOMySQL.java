@@ -6,21 +6,24 @@
 package com.petsi.conexionjdbc.dao.fabricas;
 
 import com.petsi.conexionjdbc.dao.ProductoDAO;
-import com.petsi.conexionjdbc.dao.ProductoDAOMySQL_;
+import com.petsi.conexionjdbc.dao.ProductoDAOMySQL;
 import com.petsi.conexionjdbc.dao.UsuarioDAO;
 import com.petsi.conexionjdbc.dao.UsuarioDAOMySQL;
 
 
-public class FactoryDAOMySQL implements FactoryDAO{
+public class FactoryDAOMySQL implements FactoryDAO
+{
 
     @Override
-    public UsuarioDAO getUsuarioDAO() {
+    public UsuarioDAO getUsuarioDAO() 
+    {
         return new UsuarioDAOMySQL();
     }
 
     @Override
-    public ProductoDAO getProductoDAO() {
-        return new ProductoDAOMySQL_();
+    public ProductoDAO getProductoDAO()
+    {
+        return new ProductoDAOMySQL();
     }
     
 }

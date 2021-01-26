@@ -6,10 +6,8 @@
 package com.petsi.conexionjdbc.dao.fabricas;
 
 import com.petsi.conexionjdbc.dao.ProductoDAO;
-import com.petsi.conexionjdbc.dao.ProductoDAOMySQL_;
 import com.petsi.conexionjdbc.dao.ProductoDAOPostgreSQL;
 import com.petsi.conexionjdbc.dao.UsuarioDAO;
-import com.petsi.conexionjdbc.dao.UsuarioDAOMySQL;
 import com.petsi.conexionjdbc.dao.UsuarioDAOPostgreSQL;
 
 

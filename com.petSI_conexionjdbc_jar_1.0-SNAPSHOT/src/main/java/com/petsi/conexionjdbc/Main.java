@@ -1,18 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.petsi.conexionjdbc;
 
 import com.mysql.cj.jdbc.Driver;
 import com.petsi.conexionjdbc.dao.ProductoDAO;
+import com.petsi.conexionjdbc.dao.ProductoDAOMySQL;
 import com.petsi.conexionjdbc.dao.UsuarioDAO;
 import com.petsi.conexionjdbc.dao.UsuarioDAOMySQL;
 import com.petsi.conexionjdbc.dao.fabricas.FactoryDAO;
 import com.petsi.conexionjdbc.dao.fabricas.FactoryDAOMySQL;
 import com.petsi.conexionjdbc.dao.fabricas.FactoryMethod;
-import com.petsi.conexionjdbc.modelo.Usuario;
+import com.petsi.conexionjdbc.modelo.Carrito_compras;
 import com.petsi.conexionjdbc.modelo.builders.UsuarioBuilder;
 import conexion.Conexion;
 import excepciones.ConexionException;
@@ -39,28 +35,36 @@ public class Main
     {
             try 
             {
-                FactoryDAO factoryDAO = FactoryMethod.getFactoryDAO();
-                UsuarioDAO uDao =  FactoryMethod.getUsuarioDAO();
-                ProductoDAO pDao = FactoryMethod.getProductoDAO();
-            
-            //Registrar
-            Usuario ur;
-                ur = UsuarioBuilder.builder();
-                        .setP("Pepito")
-                       // .primApeUsu("Perez");
-            uDao.registrar(ur);
-
-
-
-
+                FactoryDAO factoryDAO =  FactoryMethod.getFactoryDAO();
+                UsuarioDAO uDao =  new UsuarioDAOMySQL();
+                ProductoDAO pDao = new ProductoDAOMySQL();
+                
+                /*FactoryDAO factoryDAO =  new FactoryDAOMySQL();
+                UsuarioDAO uDao =  factoryDAO.getUsuarioDAO();
+                ProductoDAO pDao = factoryDAO.getProductoDAO();*/
 
             //Consultar por ID
-            Usuario u = uDao.consultarPorIDUs(2);   
-            System.out.println(String.format("IDUs: %d - primNomUsu: %s -  PrimApeUsu: %s "
-            ,u.getIDUs(), u.getPrimNomUsu(),u.getPrimApeUsu()));
+            Carrito_compras u = uDao.consultarPorIDUs(15);   
+            System.out.println(String.format("IDUs: %d - primNomUsu: %s - SegNomUsu: %s - PrimApeUsu: %s - SegApeusu: %s",
+            u.getIDUs(),
+            u.getPrimNomUsu(),
+            u.getSegNomUsu(),
+            u.getPrimApeUsu(),
+            u.getSegApeUsu()));
             System.out.println("Todo bien...");
+            
+            //Registrar
+            /*Carrito_compras ur = UsuarioBuilder.builder()
+                    .IDUs(10)
+                    .primNomUsu("Diana")
+                    .SegNomUsu("Andrea")
+                    .PrimApeUsu("Perez")
+                    .SegApeUsu("Hinestrtoza")
+                    .build();
+            uDao.registrar(ur);
+            */
             }
-           
+            
             catch (ConexionException ex)
             {
             System.out.println(ex.getTipo().getCodigo() + ex.getTipo().getMensaje());
@@ -77,6 +81,10 @@ public class Main
     }
 
     private static UsuarioDAO UsuarioDAOMySQL() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static Carrito_compras Usuario() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

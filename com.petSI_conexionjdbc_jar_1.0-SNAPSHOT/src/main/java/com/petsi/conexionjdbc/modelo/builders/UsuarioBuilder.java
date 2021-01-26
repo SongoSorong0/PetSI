@@ -1,15 +1,14 @@
-
 package com.petsi.conexionjdbc.modelo.builders;
 
-import com.petsi.conexionjdbc.modelo.Usuario;
+import com.petsi.conexionjdbc.modelo.Carrito_compras;
 
 public class UsuarioBuilder 
 {
-    private Usuario usuario;
+    private Carrito_compras usuario;
 
     private UsuarioBuilder() 
     {
-        usuario = new Usuario();
+        usuario = new Carrito_compras();
     }
     
     public static UsuarioBuilder builder()
@@ -26,15 +25,23 @@ public class UsuarioBuilder
         usuario.setPrimNomUsu(primNomUsu);
         return  this;
     }
-    public  UsuarioBuilder primApeUsu(String primNomUsu)
+    public  UsuarioBuilder SegNomUsu(String SegNomUsu)
     {
-        usuario.setPrimApeUsu(primNomUsu);
+        usuario.setSegNomUsu(SegNomUsu);
         return  this;
     }
-    
-   
-    
-    public Usuario build()
+    public  UsuarioBuilder PrimApeUsu(String PrimApeUsu)
+    {
+        usuario.setPrimApeUsu(PrimApeUsu);
+        return  this;
+    }
+    public  UsuarioBuilder SegApeUsu(String SegApeUsu)
+    {
+        usuario.setSegApeUsu(SegApeUsu);
+        return  this;
+    }
+
+    public Carrito_compras build()
     {
         return usuario;
     }
