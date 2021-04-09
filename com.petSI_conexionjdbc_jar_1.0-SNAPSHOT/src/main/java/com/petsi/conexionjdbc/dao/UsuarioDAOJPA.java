@@ -1,29 +1,59 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.petsi.conexionjdbc.dao;
 
 import com.petsi.conexionjdbc.modelo.Usuario;
 import com.petsi.conexionjdbc.modelo.builders.UsuarioBuilder;
 import excepciones.ConexionException;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
-public class UsuarioDAOPostgreSQL implements UsuarioDAO{
+/**
+ *
+ * @author migue
+ */
+public class UsuarioDAOJPA implements UsuarioDAO
+{
+    
+    public static final String PU = "ejemplo_PU";
+        
+    
+    
+    private EntityManager em;
+    
+    public UsuarioDAOJPA()
+    {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory(PU);
+        em = emf.createEntityManager();
+    }
 
     @Override
-    public void registrar(Usuario usuario) throws ConexionException{
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void registrar(Usuario usuario) throws ConexionException {
+        System.out.println("Estamos registrando con JPA...");
+        EntityTransaction et = em.getTransaction();
+        try
+        {
+            et.begin();
+            em.persist(em.merge(usuario));
+            et.commit();
+        }
+        catch(Exception e)
+        {
+            et.rollback();
+        }
     }
 
     @Override
     public Usuario consultarPoridUsu(Integer idUsu) throws ConexionException {
-        System.out.println("Hago conexion a PostgreSQL");
-        System.out.println("Consulto usuario de PostgreSQL" + idUsu);
-        Usuario u = new Usuario();
-        u.setidUsu(idUsu);
-        u.setPrimNomUsu("Pedor");
-        u.setPrimApeUsu("Diáz");
-            return u;
+        System.out.println("Estamos consultando con JPA...");
+        return em.find(Usuario.class, idUsu);
     }
-    
 
     @Override
     public List<Usuario> consultarTodos() {
@@ -32,7 +62,7 @@ public class UsuarioDAOPostgreSQL implements UsuarioDAO{
 
     @Override
     public void actualizar(Usuario usuario) throws ConexionException{
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        registrar(usuario);
     }
 
     @Override

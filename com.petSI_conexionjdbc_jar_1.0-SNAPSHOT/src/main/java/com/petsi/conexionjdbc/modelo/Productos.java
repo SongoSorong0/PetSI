@@ -2,6 +2,7 @@
 package com.petsi.conexionjdbc.modelo;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,9 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "productos")
 public class Productos implements Serializable
 {
     @Id
@@ -25,22 +28,24 @@ public class Productos implements Serializable
     private String nomProd;
     
     @Column (length = 45, nullable = true)
-    private String descriProd;
+    private String PrecioProd;
     
     @Column (length = 45, nullable = false)
-    private String fechaVenciProd;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechaVencProd;
     
     @Column (length = 45, nullable = false)
-    private String linea_idProducto;
+    private Integer Linea_idProducto; //FK
     
     @Column (length = 45, nullable = false)
-    private String Stock_idStock;
+    private Integer Stock_idStock; //FK
     
     @Column (length = 45, nullable = false)
-    private String Catalogo_idCatalogo;
+    private Integer carritoCompras_idCompra; //FK
   
 //<editor-fold defaultstate="collapsed" desc="Getters && Setters">
-        public Integer getIdProducto() {
+
+    public Integer getIdProducto() {
         return idProducto;
     }
 
@@ -56,51 +61,54 @@ public class Productos implements Serializable
         this.nomProd = nomProd;
     }
 
-    public String getDescriProd() {
-        return descriProd;
+    public String getPrecioProd() {
+        return PrecioProd;
     }
 
-    public void setDescriProd(String descriProd) {
-        this.descriProd = descriProd;
+    public void setPrecioProd(String PrecioProd) {
+        this.PrecioProd = PrecioProd;
     }
 
-    public String getFechaVenciProd() {
-        return fechaVenciProd;
+    public Date getFechaVencProd() {
+        return fechaVencProd;
     }
 
-    public void setFechaVenciProd(String fechaVenciProd) {
-        this.fechaVenciProd = fechaVenciProd;
+    public void setFechaVencProd(Date fechaVencProd) {
+        this.fechaVencProd = fechaVencProd;
     }
 
-    public String getLinea_idProducto() {
-        return linea_idProducto;
+    public Integer getLinea_idProducto() {
+        return Linea_idProducto;
     }
 
-    public void setLinea_idProducto(String linea_idProducto) {
-        this.linea_idProducto = linea_idProducto;
+    public void setLinea_idProducto(Integer Linea_idProducto) {
+        this.Linea_idProducto = Linea_idProducto;
     }
 
-    public String getStock_idStock() {
+    public Integer getStock_idStock() {
         return Stock_idStock;
     }
 
-    public void setStock_idStock(String Stock_idStock) {
+    public void setStock_idStock(Integer Stock_idStock) {
         this.Stock_idStock = Stock_idStock;
     }
 
-    public String getCatalogo_idCatalogo() {
-        return Catalogo_idCatalogo;
+    public Integer getCarritoCompras_idCompra() {
+        return carritoCompras_idCompra;
     }
 
-    public void setCatalogo_idCatalogo(String Catalogo_idCatalogo) {
-        this.Catalogo_idCatalogo = Catalogo_idCatalogo;
+    public void setCarritoCompras_idCompra(Integer carritoCompras_idCompra) {
+        this.carritoCompras_idCompra = carritoCompras_idCompra;
     }
+
 //</editor-fold>
 
     @Override
     public String toString() {
-        return "Usuario{" + "idProducto=" + idProducto + ", nomProd=" + nomProd + ", descriProd=" + descriProd + ", fechaVenciProd=" + fechaVenciProd + ", linea_idProducto=" + linea_idProducto + ", Stock_idStock=" + Stock_idStock +", Catalogo_idCatalogo=" + Catalogo_idCatalogo + '}';
+        return "Productos{" + "idProducto=" + idProducto + ", nomProd=" + nomProd + ", PrecioProd=" + PrecioProd + ", fechaVencProd=" + fechaVencProd + ", Linea_idProducto=" + Linea_idProducto + ", Stock_idStock=" + Stock_idStock + ", carritoCompras_idCompra=" + carritoCompras_idCompra + '}';
     }
+
+    
     
     
        

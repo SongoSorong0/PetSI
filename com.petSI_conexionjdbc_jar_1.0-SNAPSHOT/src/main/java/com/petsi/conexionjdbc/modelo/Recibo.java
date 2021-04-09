@@ -13,30 +13,34 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "recibo")
 public class Recibo implements Serializable
 {
     @Id
     @Column (name = "idRecibo", nullable = false )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn (name = "carrito de compras" , referencedColumnName = "Recibo_idRecibo")
     private Integer idRecibo;
     
     @Column(length = 45, nullable = false)
-    private String precioNeto;
-    
-    @Column (length = 45, nullable = true)
-    private String ivaRecibo;
+    private int PrecioNeto;
     
     @Column (length = 45, nullable = false)
-    private String descuentoRecibo;
+    private Integer ivaRecibo;
     
     @Column (length = 45, nullable = false)
-    private String Cajero_idUsusario;
+    private float dsctoRecibo;
+    
+    @Column (length = 45, nullable = false)
+    private Integer Cajero_Catálogo_idCatálogo; //FK
 
     @Column (length = 45, nullable = false)
-    private String cajero_catalogo_idCatalogo;
+    private Integer usuario_idUsuario; //FK
     
 //<editor-fold defaultstate="collapsed" desc="Getters && Setters">
+
     public Integer getIdRecibo() {
         return idRecibo;
     }
@@ -45,52 +49,50 @@ public class Recibo implements Serializable
         this.idRecibo = idRecibo;
     }
 
-    public String getPrecioNeto() {
-        return precioNeto;
+    public int getPrecioNeto() {
+        return PrecioNeto;
     }
 
-    public void setPrecioNeto(String precioNeto) {
-        this.precioNeto = precioNeto;
+    public void setPrecioNeto(int PrecioNeto) {
+        this.PrecioNeto = PrecioNeto;
     }
 
-    public String getIvaRecibo() {
+    public Integer getIvaRecibo() {
         return ivaRecibo;
     }
 
-    public void setIvaRecibo(String ivaRecibo) {
+    public void setIvaRecibo(Integer ivaRecibo) {
         this.ivaRecibo = ivaRecibo;
     }
 
-    public String getDescuentoRecibo() {
-        return descuentoRecibo;
+    public float getDsctoRecibo() {
+        return dsctoRecibo;
     }
 
-    public void setDescuentoRecibo(String descuentoRecibo) {
-        this.descuentoRecibo = descuentoRecibo;
+    public void setDsctoRecibo(float dsctoRecibo) {
+        this.dsctoRecibo = dsctoRecibo;
     }
 
-    public String getCajero_idUsusario() {
-        return Cajero_idUsusario;
+    public Integer getCajero_Catálogo_idCatálogo() {
+        return Cajero_Catálogo_idCatálogo;
     }
 
-    public void setCajero_idUsusario(String Cajero_idUsusario) {
-        this.Cajero_idUsusario = Cajero_idUsusario;
+    public void setCajero_Catálogo_idCatálogo(Integer Cajero_Catálogo_idCatálogo) {
+        this.Cajero_Catálogo_idCatálogo = Cajero_Catálogo_idCatálogo;
     }
 
-    public String getCajero_catalogo_idCatalogo() {
-        return cajero_catalogo_idCatalogo;
+    public Integer getUsuario_idUsuario() {
+        return usuario_idUsuario;
     }
 
-    public void setCajero_catalogo_idCatalogo(String cajero_catalogo_idCatalogo) {
-        this.cajero_catalogo_idCatalogo = cajero_catalogo_idCatalogo;
+    public void setUsuario_idUsuario(Integer usuario_idUsuario) {
+        this.usuario_idUsuario = usuario_idUsuario;
     }
+ 
 //</editor-fold>
 
     @Override
     public String toString() {
-        return "Usuario{" + "idRecibo=" + idRecibo + ", precioNeto=" + precioNeto + ", ivaRecibo=" + ivaRecibo + ", descuentoRecibo=" + descuentoRecibo + ", Cajero_idUsusario=" + Cajero_idUsusario + ", cajero_catalogo_idCatalogo=" + cajero_catalogo_idCatalogo + '}';
-    }
-    
-    
-       
+        return "Recibo{" + "idRecibo=" + idRecibo + ", PrecioNeto=" + PrecioNeto + ", ivaRecibo=" + ivaRecibo + ", dsctoRecibo=" + dsctoRecibo + ", Cajero_Cat\u00e1logo_idCat\u00e1logo=" + Cajero_Catálogo_idCatálogo + ", usuario_idUsuario=" + usuario_idUsuario + '}';
+    }         
 }

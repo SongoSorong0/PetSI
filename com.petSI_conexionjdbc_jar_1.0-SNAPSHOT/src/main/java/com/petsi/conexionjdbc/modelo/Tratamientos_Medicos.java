@@ -13,38 +13,42 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "tratamientos médicos")
 public class Tratamientos_Medicos implements Serializable
 {
     @Id
     @Column (name = "idTratMed", nullable = false )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn (name = "historia_clinica" , referencedColumnName = "tratamientos_medicos_idTratMed")
+    
+    @JoinColumn (name = "formato adopción" , referencedColumnName = "Tratamientos_Medioctos_idTraMed")
     private Integer idTratMed;
     
     @Column(length = 45, nullable = false)
-    private String id_mascota;
+    private Integer id_mascota;
     
-    @Column (length = 45, nullable = true)
+    @Column (length = 45, nullable = false)
     private String interv_medica;
     
     @Column (length = 45, nullable = false)
     private String tipoInterv;
     
     @Column (length = 45, nullable = false)
-    private String fecha_interv;
+    private float fecha_interv;
     
     @Column (length = 45, nullable = false)
     private String vacuna_med;
     
     @Column (length = 45, nullable = false)
-    private String fecha_vacu;
+    private float fecha_vacu;
     
     @Column (length = 45, nullable = false)
-    private String mascotas_idMasc;
+    private Integer mascotas_idMasc; //FK
     
     @Column (length = 45, nullable = false)
-    private String cita_id_cita;
-        
+    private Integer cita_id_cita; //FK
+    
 //<editor-fold defaultstate="collapsed" desc="Getters && Setters">
     public Integer getIdTratMed() {
         return idTratMed;
@@ -54,11 +58,11 @@ public class Tratamientos_Medicos implements Serializable
         this.idTratMed = idTratMed;
     }
 
-    public String getId_mascota() {
+    public Integer getId_mascota() {
         return id_mascota;
     }
 
-    public void setId_mascota(String id_mascota) {
+    public void setId_mascota(Integer id_mascota) {
         this.id_mascota = id_mascota;
     }
 
@@ -78,11 +82,11 @@ public class Tratamientos_Medicos implements Serializable
         this.tipoInterv = tipoInterv;
     }
 
-    public String getFecha_interv() {
+    public float getFecha_interv() {
         return fecha_interv;
     }
 
-    public void setFecha_interv(String fecha_interv) {
+    public void setFecha_interv(float fecha_interv) {
         this.fecha_interv = fecha_interv;
     }
 
@@ -94,27 +98,27 @@ public class Tratamientos_Medicos implements Serializable
         this.vacuna_med = vacuna_med;
     }
 
-    public String getFecha_vacu() {
+    public float getFecha_vacu() {
         return fecha_vacu;
     }
 
-    public void setFecha_vacu(String fecha_vacu) {
+    public void setFecha_vacu(float fecha_vacu) {
         this.fecha_vacu = fecha_vacu;
     }
 
-    public String getMascotas_idMasc() {
+    public Integer getMascotas_idMasc() {
         return mascotas_idMasc;
     }
 
-    public void setMascotas_idMasc(String mascotas_idMasc) {
+    public void setMascotas_idMasc(Integer mascotas_idMasc) {
         this.mascotas_idMasc = mascotas_idMasc;
     }
 
-    public String getCita_id_cita() {
+    public Integer getCita_id_cita() {
         return cita_id_cita;
     }
 
-    public void setCita_id_cita(String cita_id_cita) {
+    public void setCita_id_cita(Integer cita_id_cita) {
         this.cita_id_cita = cita_id_cita;
     }
 //</editor-fold>

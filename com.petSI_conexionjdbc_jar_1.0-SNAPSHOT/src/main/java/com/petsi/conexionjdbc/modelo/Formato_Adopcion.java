@@ -13,30 +13,30 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "formato adopción")
 public class Formato_Adopcion implements Serializable
 {
     @Id
-    @Column (name = "idFDormAdop", nullable = false )
+    @Column (name = "idFormAdop", nullable = false )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idFDormAdop;
+    private Integer idFormAdop;
     
     @Column(length = 45, nullable = false)
-    private Integer Tratamientos_Medioctos_idTraMed;
-    
-    @Column (length = 45, nullable = true)
-    private Integer Historia_Clinica_idHistClin;
+    private Integer Tratamientos_Medioctos_idTraMed; //FK
     
     @Column (length = 45, nullable = false)
-    private String Mascota_idMasc;
+    private Integer Historia_Clinica_idHistClin;//FK
+    
+    @Column (length = 45, nullable = false)
+    private Integer Mascota_idMasc;//FK
     
 //<editor-fold defaultstate="collapsed" desc="Getters && Setters">
     public Integer getIdFDormAdop() {
-        return idFDormAdop;
+        return idFormAdop;
     }
 
     public void setIdFDormAdop(Integer idFDormAdop) {
-        this.idFDormAdop = idFDormAdop;
+        this.idFormAdop = idFDormAdop;
     }
 
     public Integer getTratamientos_Medioctos_idTraMed() {
@@ -55,18 +55,18 @@ public class Formato_Adopcion implements Serializable
         this.Historia_Clinica_idHistClin = Historia_Clinica_idHistClin;
     }
 
-    public String getMascota_idMasc() {
+    public Integer getMascota_idMasc() {
         return Mascota_idMasc;
     }
 
-    public void setMascota_idMasc(String Mascota_idMasc) {
+    public void setMascota_idMasc(Integer Mascota_idMasc) {
         this.Mascota_idMasc = Mascota_idMasc;
     }
 //</editor-fold>
  
     @Override
     public String toString() {
-        return "Usuario{" + "idFDormAdop=" + idFDormAdop + ", Tratamientos_Medioctos_idTraMed=" + Tratamientos_Medioctos_idTraMed + ", Historia_Clinica_idHistClin=" + Historia_Clinica_idHistClin + ", Mascota_idMasc=" + Mascota_idMasc +  '}';
+        return "Usuario{" + "idFDormAdop=" + idFormAdop + ", Tratamientos_Medioctos_idTraMed=" + Tratamientos_Medioctos_idTraMed + ", Historia_Clinica_idHistClin=" + Historia_Clinica_idHistClin + ", Mascota_idMasc=" + Mascota_idMasc +  '}';
     }
     
     

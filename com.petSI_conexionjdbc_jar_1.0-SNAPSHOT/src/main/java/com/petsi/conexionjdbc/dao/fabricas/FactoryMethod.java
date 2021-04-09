@@ -28,6 +28,9 @@ public class FactoryMethod
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
+    private static final String MY_SQL = "com.petsi.conexionjdbc.dao.fabricas.FactoryDAOMySQL";
+    private static final String JPA = "com.petsi.conexionjdbc.dao.fabricas.FactoryDAOJPA";
+    
     private FactoryMethod()
     {
         
@@ -37,7 +40,7 @@ public class FactoryMethod
         {
             try {
                 FactoryDAO factoryDAO = (FactoryDAO) Class
-                        .forName("com.petsi.conexionjdbc.dao.fabricas.FactoryDAOMySQL")
+                        .forName(JPA)
                         .newInstance();
                 return factoryDAO;
                 

@@ -8,7 +8,7 @@ import com.petsi.conexionjdbc.dao.UsuarioDAOMySQL;
 import com.petsi.conexionjdbc.dao.fabricas.FactoryDAO;
 import com.petsi.conexionjdbc.dao.fabricas.FactoryDAOMySQL;
 import com.petsi.conexionjdbc.dao.fabricas.FactoryMethod;
-import com.petsi.conexionjdbc.modelo.Carrito_compras;
+import com.petsi.conexionjdbc.modelo.Usuario;
 import com.petsi.conexionjdbc.modelo.builders.UsuarioBuilder;
 import conexion.Conexion;
 import excepciones.ConexionException;
@@ -44,18 +44,20 @@ public class Main
                 ProductoDAO pDao = factoryDAO.getProductoDAO();*/
 
             //Consultar por ID
-            Carrito_compras u = uDao.consultarPorIDUs(15);   
-            System.out.println(String.format("IDUs: %d - primNomUsu: %s - SegNomUsu: %s - PrimApeUsu: %s - SegApeusu: %s",
-            u.getIDUs(),
+            Usuario u = uDao.consultarPoridUsu(2);   
+            System.out.println(String.format("idUsu: %d - primNomUsu: %s - SegNomUsu: %s - PrimApeUsu: %s - SegApeusu: %s ",
+            u.getidUsu(),
             u.getPrimNomUsu(),
             u.getSegNomUsu(),
             u.getPrimApeUsu(),
             u.getSegApeUsu()));
             System.out.println("Todo bien...");
             
+            System.out.println(u.getRol_Usuarios());
+            
             //Registrar
-            /*Carrito_compras ur = UsuarioBuilder.builder()
-                    .IDUs(10)
+            /*Usuario1 ur = UsuarioBuilder.builder()
+                    .idUsu(10)
                     .primNomUsu("Diana")
                     .SegNomUsu("Andrea")
                     .PrimApeUsu("Perez")
@@ -75,17 +77,14 @@ public class Main
             finally
             {
             System.out.println("Esto siempre se ejecuta...");
-            }
-       
-        
+            }    
     }
 
     private static UsuarioDAO UsuarioDAOMySQL() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private static Carrito_compras Usuario() {
+    private static Usuario Usuario() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    }   
 }

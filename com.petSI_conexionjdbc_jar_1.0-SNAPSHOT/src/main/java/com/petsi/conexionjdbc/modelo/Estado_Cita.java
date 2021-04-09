@@ -13,18 +13,25 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "estado cita")
 public class Estado_Cita implements Serializable
 {
     @Id
     @Column (name = "id_estCita", nullable = false )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn (name = "citas" , referencedColumnName = "estado_cita_id_estCita")
     private Integer id_estCita;
     
     @Column(length = 45, nullable = false)
-    private String estadoCita;   
+    private String estadoCita;
+    
+    @Column(length = 45, nullable = false)
+    private String Descrip_estadoCita;
+    
 //<editor-fold defaultstate="collapsed" desc="Getters && Setters">
-public Integer getId_estCita() {
+
+    public Integer getId_estCita() {
         return id_estCita;
     }
 
@@ -38,14 +45,20 @@ public Integer getId_estCita() {
 
     public void setEstadoCita(String estadoCita) {
         this.estadoCita = estadoCita;
-    }      
+    }
+
+    public String getDescrip_estadoCita() {
+        return Descrip_estadoCita;
+    }
+
+    public void setDescrip_estadoCita(String Descrip_estadoCita) {
+        this.Descrip_estadoCita = Descrip_estadoCita;
+    }
+
 //</editor-fold>
 
     @Override
     public String toString() {
-        return "Usuario{" + "id_estCita=" + id_estCita + ", estadoCita=" + estadoCita +  '}';
-    }
-    
-    
-       
+        return "Estado_Cita{" + "id_estCita=" + id_estCita + ", estadoCita=" + estadoCita + ", Descrip_estadoCita=" + Descrip_estadoCita + '}';
+    }     
 }

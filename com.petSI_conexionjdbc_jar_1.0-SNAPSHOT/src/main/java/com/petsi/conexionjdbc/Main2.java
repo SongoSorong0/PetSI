@@ -1,6 +1,6 @@
 package com.petsi.conexionjdbc;
 
-import com.petsi.conexionjdbc.modelo.Carrito_compras;
+import com.petsi.conexionjdbc.modelo.Usuario;
 import com.petsi.conexionjdbc.modelo.builders.UsuarioBuilder;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -13,20 +13,18 @@ public class Main2
 {
     public static void main(String[] args) 
     {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ejemplo_PU");
-        EntityManager em = emf.createEntityManager();
-        Carrito_compras usuario = em.find(Carrito_compras.class, 2);
+        
+        Usuario usuario = em.find(Usuario.class, 2);
         
         
         
-        Carrito_compras u = UsuarioBuilder.builder()
-                .IDUs(2)
-                .primNomUsu("Valentina")
-                .SegNomUsu("Sofia")
-                .PrimApeUsu("Vargas")
-                .SegApeUsu("Pardo")
+        Usuario u = UsuarioBuilder.builder()
+                .idUsu(2)
+                .primNomUsu("Valery")
+                .SegNomUsu("")
+                .PrimApeUsu("Garzon")
+                .SegApeUsu("Guarnizo")
                 .build();
-        
         
         EntityTransaction et = em.getTransaction();
         try
@@ -43,13 +41,13 @@ public class Main2
         
         //JPQL
         
-        String sql = "SELECT tbl_u.* FROM usuarios tbl_u";
+        //String sql = "SELECT tbl_u.* FROM usuarios tbl_u";
         String jpql = "SELECT u FROM Usuario u WHERE u.PrimApeUsu=:apellido1";
-        TypedQuery<Carrito_compras> q = em.createQuery(jpql, Carrito_compras.class);
+        TypedQuery<Usuario> q = em.createQuery(jpql, Usuario.class);
         
         q.setParameter("apellido1", "Perez");
         
-        List<Carrito_compras> usuarios = q.getResultList();
+        List<Usuario> usuarios = q.getResultList();
         
         usuarios.forEach(System.out::println);
      

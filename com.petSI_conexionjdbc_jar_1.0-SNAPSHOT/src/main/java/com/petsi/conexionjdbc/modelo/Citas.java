@@ -13,44 +13,48 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "citas")
 public class Citas implements Serializable
 {
     @Id
-    @Column (name = "idCita", nullable = false )
+    @Column (name = "id_cita", nullable = false )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCita;
+    private Integer id_cita;
     
     @Column(length = 45, nullable = false)
-    private String Agenda_id_agd;
+    private Integer agenda_id_agd;//FK
     
     @Column (length = 45, nullable = true)
     private String tipoCita;
     
     @Column (length = 45, nullable = false)
-    private String estado_cita_id_estCita;
+    private Integer historia_clinica_id_histClin;//FK
     
-    @Column (length = 45, nullable = false)
-    private String Usuarios_idUsu;
+    @Column (length = 45, nullable = false)//FK
+    private Integer estado_cita_id_estCita;//FK
    
     @Column (length = 45, nullable = false)
-    private String Mascotas_idMasc;
-        
+    private Integer veterinario_id_vet;//FK
+    
+    @Column (length = 45, nullable = false)
+    private Integer usuario_idUsu;//FK
+    
 //<editor-fold defaultstate="collapsed" desc="Getters && Setters">
-    public Integer getIdCita() {
-        return idCita;
+
+    public Integer getId_cita() {
+        return id_cita;
     }
 
-    public void setIdCita(Integer idCita) {
-        this.idCita = idCita;
+    public void setId_cita(Integer id_cita) {
+        this.id_cita = id_cita;
     }
 
-    public String getAgenda_id_agd() {
-        return Agenda_id_agd;
+    public Integer getAgenda_id_agd() {
+        return agenda_id_agd;
     }
 
-    public void setAgenda_id_agd(String Agenda_id_agd) {
-        this.Agenda_id_agd = Agenda_id_agd;
+    public void setAgenda_id_agd(Integer agenda_id_agd) {
+        this.agenda_id_agd = agenda_id_agd;
     }
 
     public String getTipoCita() {
@@ -61,36 +65,45 @@ public class Citas implements Serializable
         this.tipoCita = tipoCita;
     }
 
-    public String getEstado_cita_id_estCita() {
+    public Integer getHistoria_clinica_id_histClin() {
+        return historia_clinica_id_histClin;
+    }
+
+    public void setHistoria_clinica_id_histClin(Integer historia_clinica_id_histClin) {
+        this.historia_clinica_id_histClin = historia_clinica_id_histClin;
+    }
+
+    public Integer getEstado_cita_id_estCita() {
         return estado_cita_id_estCita;
     }
 
-    public void setEstado_cita_id_estCita(String estado_cita_id_estCita) {
+    public void setEstado_cita_id_estCita(Integer estado_cita_id_estCita) {
         this.estado_cita_id_estCita = estado_cita_id_estCita;
     }
 
-    public String getUsuarios_idUsu() {
-        return Usuarios_idUsu;
+    public Integer getVeterinario_id_vet() {
+        return veterinario_id_vet;
     }
 
-    public void setUsuarios_idUsu(String Usuarios_idUsu) {
-        this.Usuarios_idUsu = Usuarios_idUsu;
+    public void setVeterinario_id_vet(Integer veterinario_id_vet) {
+        this.veterinario_id_vet = veterinario_id_vet;
     }
 
-    public String getMascotas_idMasc() {
-        return Mascotas_idMasc;
+    public Integer getUsuario_idUsu() {
+        return usuario_idUsu;
     }
 
-    public void setMascotas_idMasc(String Mascotas_idMasc) {
-        this.Mascotas_idMasc = Mascotas_idMasc;
-    }
-
+    public void setUsuario_idUsu(Integer usuario_idUsu) {
+        this.usuario_idUsu = usuario_idUsu;
+    }  
 //</editor-fold>
 
     @Override
     public String toString() {
-        return "Usuario{" + "idCita=" + idCita + ", Agenda_id_agd=" + Agenda_id_agd + ", tipoCita=" + tipoCita + ", estado_cita_id_estCita=" + estado_cita_id_estCita + ", Usuarios_idUsu=" + Usuarios_idUsu + ", Mascotas_idMasc=" + Mascotas_idMasc +  '}';
+        return "Citas{" + "id_cita=" + id_cita + ", agenda_id_agd=" + agenda_id_agd + ", tipoCita=" + tipoCita + ", historia_clinica_id_histClin=" + historia_clinica_id_histClin + ", estado_cita_id_estCita=" + estado_cita_id_estCita + ", veterinario_id_vet=" + veterinario_id_vet + ", usuario_idUsu=" + usuario_idUsu + '}';
     }
+
+    
     
     
        

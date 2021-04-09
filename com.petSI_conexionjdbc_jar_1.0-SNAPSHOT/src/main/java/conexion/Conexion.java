@@ -36,7 +36,7 @@ public class Conexion
         try 
         {
         Properties propiedadesConexion = new Properties();
-        propiedadesConexion.put ("url","jdbc:mysql://localhost:3306/importpetsi?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+        propiedadesConexion.put ("url","jdbc:mysql://localhost:3306/bd_petsi_feb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
         propiedadesConexion.put ("user","root");
         propiedadesConexion.put ("password","mePongosongo1");
         conexion = DriverManager.getConnection(

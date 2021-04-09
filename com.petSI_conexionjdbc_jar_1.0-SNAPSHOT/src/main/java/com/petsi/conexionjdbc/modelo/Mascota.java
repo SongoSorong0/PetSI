@@ -13,12 +13,18 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "mascota")
 public class Mascota implements Serializable
 {
     @Id
     @Column (name = "id_Masc", nullable = false )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn (name = "tratamientos médicos" , referencedColumnName = "mascota_idMasc")
+    
+    @JoinColumn (name = "formato adopción" , referencedColumnName = "mascota_idMasc")
+    
+    @JoinColumn (name = "citas" , referencedColumnName = "mascota_idMasc")
     private Integer id_Masc;
     
     @Column(length = 45, nullable = true)
@@ -37,10 +43,10 @@ public class Mascota implements Serializable
     private String sexoMasc;
     
     @Column (name = "historia_clinica_id_histClin",length = 45, nullable = true)
-    private Integer historia_clinica_id_histClin;
+    private Integer historia_clinica_id_histClin; //FK
     
-    @Column (length = 45, nullable = true)
-    private Integer Usuarios_idUsu;
+    @Column (name = "Usuarios_idUsu",length = 45, nullable = true)
+    private Integer Usuarios_idUsu;//FK
     
 //<editor-fold defaultstate="collapsed" desc="Getters && Setters">
     public Integer getId_Masc() {

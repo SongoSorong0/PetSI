@@ -13,26 +13,30 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "stock")
 public class Stock implements Serializable
 {
     @Id
     @Column (name = "idStock", nullable = false )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn (name = "proveedor" , referencedColumnName = "stock_idStock")
+    
+    @JoinColumn (name = "productos" , referencedColumnName = "stock_idStock")
     private Integer idStock;
     
     @Column(length = 45, nullable = false)
     private String prodStock;
     
     @Column (length = 45, nullable = true)
-    private String cantidadStock;
+    private int cantidadStock;
     
     @Column (name = "dispanStock",length = 45, nullable = false)
-    private String disponStock;
+    private int disponStock;
 
     @Column (length = 45, nullable = false)
-    private String Administrador_idAdmin;
-    
+    private Integer Administrador_idAdmin; //FK
+
 //<editor-fold defaultstate="collapsed" desc="Getters && Setters">
     public Integer getIdStock() {
         return idStock;
@@ -50,27 +54,27 @@ public class Stock implements Serializable
         this.prodStock = prodStock;
     }
 
-    public String getCantidadStock() {
+    public int getCantidadStock() {
         return cantidadStock;
     }
 
-    public void setCantidadStock(String cantidadStock) {
+    public void setCantidadStock(int cantidadStock) {
         this.cantidadStock = cantidadStock;
     }
 
-    public String getDisponStock() {
+    public int getDisponStock() {
         return disponStock;
     }
 
-    public void setDisponStock(String disponStock) {
+    public void setDisponStock(int disponStock) {
         this.disponStock = disponStock;
     }
 
-    public String getAdministrador_idAdmin() {
+    public Integer getAdministrador_idAdmin() {
         return Administrador_idAdmin;
     }
 
-    public void setAdministrador_idAdmin(String Administrador_idAdmin) {
+    public void setAdministrador_idAdmin(Integer Administrador_idAdmin) {
         this.Administrador_idAdmin = Administrador_idAdmin;
     }
 //</editor-fold>

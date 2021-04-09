@@ -19,6 +19,8 @@ public class Linea_Producto implements Serializable
     @Id
     @Column (name = "IdLinea", nullable = false )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn (name = "productos" , referencedColumnName = "linea_idProducto")
     private Integer IdLinea;
     
     @Column(length = 45, nullable = false)

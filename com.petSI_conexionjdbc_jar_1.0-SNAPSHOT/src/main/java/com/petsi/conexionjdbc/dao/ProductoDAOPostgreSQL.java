@@ -1,23 +1,23 @@
 
 package com.petsi.conexionjdbc.dao;
 
-import com.petsi.conexionjdbc.modelo.Carrito_compras;
+import com.petsi.conexionjdbc.modelo.Usuario;
 import excepciones.ConexionException;
 import java.util.List;
 
 public class ProductoDAOPostgreSQL implements ProductoDAO{
 
     @Override
-    public void registrar(Carrito_compras usuario) {
+    public void registrar(Usuario usuario) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Carrito_compras consultarPorIDUs(Integer IDUs) throws ConexionException {
+    public Usuario consultarPoridUsu(Integer idUsu) throws ConexionException {
         System.out.println("Hago conexion a PostgreSQL");
-        System.out.println("Consulto usuario de PostgreSQL" + IDUs);
-        Carrito_compras u = new Carrito_compras();
-        u.setIDUs(IDUs);
+        System.out.println("Consulto usuario de PostgreSQL" + idUsu);
+        Usuario u = new Usuario();
+        u.setidUsu(idUsu);
         u.setPrimNomUsu("Pedor");
         u.setPrimApeUsu("Diáz");
             return u;
@@ -25,12 +25,12 @@ public class ProductoDAOPostgreSQL implements ProductoDAO{
     
 
     @Override
-    public List<Carrito_compras> consultarTodos() {
+    public List<Usuario> consultarTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void actualizarr(Carrito_compras usuario) {
+    public void actualizarr(Usuario usuario) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -40,7 +40,7 @@ public class ProductoDAOPostgreSQL implements ProductoDAO{
     }
 
     @Override
-    public Carrito_compras consultarPorIDUs() {
+    public Usuario consultarPorIDUs() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -30,10 +30,12 @@ public class Proveedor implements Serializable
     @Column (length = 45, nullable = false)
     private String emailProv;
 
- 
     @Column (length = 45, nullable = false)
-    private String administrador_idAdmin;
- 
+    private Integer administrador_idAdmin; //FK
+    
+    @Column (length = 45, nullable = false)
+    private Integer stock_idStock; //FK
+   
 //<editor-fold defaultstate="collapsed" desc="Getters && Setters">
     public Integer getProvNIT() {
         return provNIT;
@@ -65,14 +67,27 @@ public class Proveedor implements Serializable
 
     public void setEmailProv(String emailProv) {
         this.emailProv = emailProv;
-    } 
+    }
+
+    public Integer getAdministrador_idAdmin() {
+        return administrador_idAdmin;
+    }
+
+    public void setAdministrador_idAdmin(Integer administrador_idAdmin) {
+        this.administrador_idAdmin = administrador_idAdmin;
+    }
+
+    public Integer getStock_idStock() {
+        return stock_idStock;
+    }
+
+    public void setStock_idStock(Integer stock_idStock) {
+        this.stock_idStock = stock_idStock;
+    }
 //</editor-fold>
 
     @Override
     public String toString() {
-        return "Usuario{" + "provNIT=" + provNIT + ", empresaProv=" + empresaProv + ", dirProv=" + dirProv + ", emailProv=" + emailProv + ", administrador_idAdmin=" + administrador_idAdmin +  '}';
-    }
-    
-    
-       
+        return "Usuario{" + "provNIT=" + provNIT + ", empresaProv=" + empresaProv + ", dirProv=" + dirProv + ", emailProv=" + emailProv + ", administrador_idAdmin=" + administrador_idAdmin + ", stock_idStock=" + stock_idStock +  '}';
+    }     
 }

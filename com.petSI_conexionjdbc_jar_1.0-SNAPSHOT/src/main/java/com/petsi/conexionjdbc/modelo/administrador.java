@@ -13,54 +13,58 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "administrador")
 public class administrador implements Serializable
 {
     @Id
-    @Column (name = "idAdmin", nullable = false )
+    @Column (name = "idADmin", nullable = false )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idAdmin;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn (name = "proveedor" , referencedColumnName = "administrador_idAdmin")
+    
+    @JoinColumn (name = "stock" , referencedColumnName = "administrador_idAdmin")
+    private Integer idADmin;
     
     @Column(length = 45, nullable = false)
-    private String dirAdmin;
+    private String sedeAdmin;
     
-    @Column (length = 45, nullable = true)
-    private Integer Usuarios_IDUs;        
-
-    
-
-    
+    @Column (name = "Usuarios_idUsu" , length = 45, nullable = true)
+    private Integer Usuarios_idUsu; //FK        
+ 
 //<editor-fold defaultstate="collapsed" desc="Getters && Setters">
-    public Integer getIdAdmin() {
-        return idAdmin;
+
+    public Integer getIdADmin() {
+        return idADmin;
     }
 
-    public void setIdAdmin(Integer idAdmin) {
-        this.idAdmin = idAdmin;
+    public void setIdADmin(Integer idADmin) {
+        this.idADmin = idADmin;
     }
 
-    public String getDirAdmin() {
-        return dirAdmin;
+    public String getSedeAdmin() {
+        return sedeAdmin;
     }
 
-    public void setDirAdmin(String dirAdmin) {
-        this.dirAdmin = dirAdmin;
+    public void setSedeAdmin(String sedeAdmin) {
+        this.sedeAdmin = sedeAdmin;
     }
 
-    public Integer getUsuarios_IDUs() {
-        return Usuarios_IDUs;
+    public Integer getUsuarios_idUsu() {
+        return Usuarios_idUsu;
     }
 
-    public void setUsuarios_IDUs(Integer Usuarios_IDUs) {
-        this.Usuarios_IDUs = Usuarios_IDUs;
+    public void setUsuarios_idUsu(Integer Usuarios_idUsu) {
+        this.Usuarios_idUsu = Usuarios_idUsu;
     }
+    
+    
+    
 //</editor-fold>
 
     @Override
     public String toString() {
-        return "Usuario{" + "idAdmins=" + idAdmin + ", dirAdmin=" + dirAdmin + ", Usuarios_IDUs=" + Usuarios_IDUs +  '}';
+        return "administrador{" + "idADmin=" + idADmin + ", sedeAdmin=" + sedeAdmin + ", Usuarios_idUsu=" + Usuarios_idUsu + '}';
     }
-    
-    
-       
+
+         
 }

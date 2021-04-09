@@ -13,12 +13,15 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "historia_clinica")
 public class Historia_Clinica implements Serializable
 {
     @Id
     @Column (name = "idHistClin", nullable = false )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn (name = "mascota" , referencedColumnName = "historia clínica_idHistClin")
+    @JoinColumn (name = "formato adopcion" , referencedColumnName = "historia clínica_idHistClin")
     private Integer idHistClin;
     
     @Column(length = 45, nullable = false)

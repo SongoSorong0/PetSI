@@ -13,41 +13,50 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "cajero")
 public class Cajero implements Serializable
 {
     @Id
     @Column (name = "IdCaj", nullable = false )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer IdCaj;
+    private Integer idCaj;
     
-    @Column(name = "Usuarios_IdUsu", length = 45, nullable = false)
-    private Integer Usuarios_IDUs;
+    @Column(name = "SalarioCaj", length = 45, nullable = false)
+    private Integer SalarioCaj; //FK
+    
+    @Column(name = "Usuarios_idUsu", length = 45, nullable = false)
+    private Integer Usuarios_idUsu; //FK
 
-      
+    
 //<editor-fold defaultstate="collapsed" desc="Getters && Setters">
-     public Integer getIdCaj() {
-        return IdCaj;
+    public Integer getIdCaj() {      
+        return idCaj;
+    }      
+
+    public void setIdCaj(Integer idCaj) {
+        this.idCaj = idCaj;
     }
 
-    public void setIdCaj(Integer IdCaj) {
-        this.IdCaj = IdCaj;
+    public Integer getSalarioCaj() {
+        return SalarioCaj;
     }
 
-    public Integer getUsuarios_IDUs() {
-        return Usuarios_IDUs;
+    public void setSalarioCaj(Integer SalarioCaj) {
+        this.SalarioCaj = SalarioCaj;
     }
 
-    public void setUsuarios_IDUs(Integer Usuarios_IDUs) {
-        this.Usuarios_IDUs = Usuarios_IDUs;
+    public Integer getUsuarios_idUsu() {
+        return Usuarios_idUsu;
     }
+
+    public void setUsuarios_idUsu(Integer Usuarios_idUsu) {
+        this.Usuarios_idUsu = Usuarios_idUsu;
+    }
+
 //</editor-fold>
-
+    
     @Override
     public String toString() {
-        return "Usuario{" + "IdCaj=" + IdCaj + ", Usuarios_IDUs=" + Usuarios_IDUs + '}';
-    }
-    
-    
-       
+        return "Cajero{" + "idCaj=" + idCaj + ", SalarioCaj=" + SalarioCaj + ", Usuarios_idUsu=" + Usuarios_idUsu + '}';
+    }      
 }

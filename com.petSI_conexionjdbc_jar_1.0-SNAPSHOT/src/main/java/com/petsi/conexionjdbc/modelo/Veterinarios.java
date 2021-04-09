@@ -13,23 +13,29 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "veterinario")
 public class Veterinarios implements Serializable
 {
     @Id
     @Column (name = "id_vet", nullable = false )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn (name = "agenda" , referencedColumnName = "vererinarios_id_vet")
+    
+    @JoinColumn (name = "citas" , referencedColumnName = "vererinarios_id_vet")
+    
+    @JoinColumn (name = "citas" , referencedColumnName = "vererinarios_id_vet")
     private Integer id_vet;
+  
+    @Column (length = 45, nullable = false)
+    private Integer Usuarios_idUsu; //FK         
     
     @Column(length = 45, nullable = false)
-    private Integer citas_id_cita;
-    
-    @Column (length = 45, nullable = true)
-    private Integer Usuarios_IDUs;    
-      
+    private String especialidad_Vet; //FK
     
 //<editor-fold defaultstate="collapsed" desc="Getters && Setters">
-     public Integer getId_vet() {
+
+    public Integer getId_vet() {
         return id_vet;
     }
 
@@ -37,28 +43,33 @@ public class Veterinarios implements Serializable
         this.id_vet = id_vet;
     }
 
-    public Integer getCitas_id_cita() {
-        return citas_id_cita;
+    public Integer getUsuarios_idUsu() {
+        return Usuarios_idUsu;
     }
 
-    public void setCitas_id_cita(Integer citas_id_cita) {
-        this.citas_id_cita = citas_id_cita;
+    public void setUsuarios_idUsu(Integer Usuarios_idUsu) {
+        this.Usuarios_idUsu = Usuarios_idUsu;
     }
 
-    public Integer getUsuarios_IDUs() {
-        return Usuarios_IDUs;
+    public String getEspecialidad_Vet() {
+        return especialidad_Vet;
     }
 
-    public void setUsuarios_IDUs(Integer Usuarios_IDUs) {
-        this.Usuarios_IDUs = Usuarios_IDUs;
+    public void setEspecialidad_Vet(String especialidad_Vet) {
+        this.especialidad_Vet = especialidad_Vet;
     }
+     
+    
+    
+    
+    
+    
 //</editor-fold>
 
     @Override
     public String toString() {
-        return "Usuario{" + "id_vet=" + id_vet + ", citas_id_cita=" + citas_id_cita + ", Usuarios_IDUs=" + Usuarios_IDUs + '}';
+        return "Veterinarios{" + "id_vet=" + id_vet + ", Usuarios_idUsu=" + Usuarios_idUsu + ", especialidad_Vet=" + especialidad_Vet + '}';
     }
-    
-    
+
        
 }

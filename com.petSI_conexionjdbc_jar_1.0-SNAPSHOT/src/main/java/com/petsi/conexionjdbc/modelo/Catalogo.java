@@ -13,48 +13,76 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "catálogo")
 public class Catalogo implements Serializable
 {
     @Id
-    @Column (name = "idCatalogo", nullable = false )
+    @Column (name = "idCatálogo", nullable = false )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCatalogo;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn (name = "recibo" , referencedColumnName = "cajero_catalogo_idCatalogo")
+    
+    @JoinColumn (name = "productos" , referencedColumnName = "catalogo_idCatalogo")
+    private Integer idCatálogo;
     
     @Column(length = 45, nullable = false)
-    private String dispon_Catalog;
+    private Integer dispon_Catalog;
     
-    @Column (length = 45, nullable = true)
-    private String servicios_idServicios;
+    @Column (length = 45, nullable = false)
+    private Integer imgCatálogos;
+    
+    @Column (length = 45, nullable = false)
+    private Integer Productos_idProducto;//FK
+    
+    @Column (length = 45, nullable = false)
+    private Integer Servicios_idServicios;//FK
   
 //<editor-fold defaultstate="collapsed" desc="Getters && Setters">
-    public Integer getIdCatalogo() {
-        return idCatalogo;
+
+    public Integer getIdCatálogo() {
+        return idCatálogo;
     }
 
-    public void setIdCatalogo(Integer idCatalogo) {
-        this.idCatalogo = idCatalogo;
+    public void setIdCatálogo(Integer idCatálogo) {
+        this.idCatálogo = idCatálogo;
     }
 
-    public String getDispon_Catalog() {
+    public Integer getDispon_Catalog() {
         return dispon_Catalog;
     }
 
-    public void setDispon_Catalog(String dispon_Catalog) {
+    public void setDispon_Catalog(Integer dispon_Catalog) {
         this.dispon_Catalog = dispon_Catalog;
     }
 
-    public String getServicios_idServicios() {
-        return servicios_idServicios;
+    public Integer getImgCatálogos() {
+        return imgCatálogos;
     }
 
-    public void setServicios_idServicios(String servicios_idServicios) {
-        this.servicios_idServicios = servicios_idServicios;
+    public void setImgCatálogos(Integer imgCatálogos) {
+        this.imgCatálogos = imgCatálogos;
     }
+
+    public Integer getProductos_idProducto() {
+        return Productos_idProducto;
+    }
+
+    public void setProductos_idProducto(Integer Productos_idProducto) {
+        this.Productos_idProducto = Productos_idProducto;
+    }
+
+    public Integer getServicios_idServicios() {
+        return Servicios_idServicios;
+    }
+
+    public void setServicios_idServicios(Integer Servicios_idServicios) {
+        this.Servicios_idServicios = Servicios_idServicios;
+    }
+  
 //</editor-fold>
 
     @Override
     public String toString() {
-        return "Usuario{" + "idCatalogo=" + idCatalogo + ", dispon_Catalog=" + dispon_Catalog + ", servicios_idServicios=" + servicios_idServicios + '}';
-    }       
+        return "Catalogo{" + "idCat\u00e1logo=" + idCatálogo + ", dispon_Catalog=" + dispon_Catalog + ", imgCat\u00e1logos=" + imgCatálogos + ", Productos_idProducto=" + Productos_idProducto + ", Servicios_idServicios=" + Servicios_idServicios + '}';
+    }      
 }
